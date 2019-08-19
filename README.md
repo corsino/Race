@@ -23,7 +23,7 @@ No desenvolvimento da solução foram utilizados os seguintes targets de compila
 
 Uso do pacote [SwashBuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) para gerar a documentação da API no formato OpenAPI / Swagger. Para explorar a API, acesse https://localhost:44323/swagger em modo de runtime.
 
-As configurações podem ser encontradas no projeto `MicrosservicoExemplo.Infrastructure.Bootstrap`, nos arquivos `/ApplicationBuilder/SwaggerApplicationBuilderExtensions.cs` e  `/ServiceCollection/SwaggerServiceCollectionExtensions.cs`.
+As configurações podem ser encontradas no projeto `Gyp.Corrida.InfraStructure.Bootstrap`, nos arquivos `/ApplicationBuilder/SwaggerApplicationBuilderExtensions.cs` e  `/ServiceCollection/SwaggerServiceCollectionExtensions.cs`.
 
 Maiores informações podem ser encontradas na documentação da biblioteca em 
 https://github.com/domaindrivendev/Swashbuckle.AspNetCore#include-descriptions-from-xml-comments
