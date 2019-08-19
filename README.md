@@ -3,12 +3,12 @@
 Esse projeto contém uma estrutura desenvolvida em .Net Core em clean architecture (https://miro.medium.com/max/700/1*B7LkQDyDqLN3rRSrNYkETA.jpeg) adaptado,
 para não gerar uma complexidade desnecessária, algumas camadas não foram aplicadas, como por exemplo UseCases,
 e tem por objetivo atender os requisitos:
-	1. Importação de log
-	2. Output de informações: **Posição Chegada, Código Piloto, Nome Piloto, Qtde Voltas Completadas e Tempo Total de Prova.**
-	3. Clean code
-	4. Imutabilidade
-	5. Tratamento de Erros;
-    6. Separação clara de responsabilidades (Domínios, Serviços, Repositórios, etc);
+- Importação de log
+- Output de informações: **Posição Chegada, Código Piloto, Nome Piloto, Qtde Voltas Completadas e Tempo Total de Prova.**
+- Clean code
+- Imutabilidade
+- Tratamento de Erros;
+- Separação clara de responsabilidades (Domínios, Serviços, Repositórios, etc);
 
 ## TechStack
 
