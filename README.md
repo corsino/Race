@@ -19,6 +19,10 @@ No desenvolvimento da solução foram utilizados os seguintes targets de compila
 - Bibliotecas - .Net Standard 4.7.1
 - Entrypoint\Web API - .Net Core 2.2
 
+### Testes:
+
+Para testes utilizei xUnits
+
 ### Documentação de API 
 
 Uso do pacote [SwashBuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) para gerar a documentação da API no formato OpenAPI / Swagger. Para explorar a API, acesse https://localhost:44323/swagger em modo de runtime.
