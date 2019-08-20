@@ -25,6 +25,7 @@ namespace Gyp.Corrida.InfraStructure.Bootstrap
             });
 
             services.AddGypCorridaSwagger();
+            services.AddGypCorridaDI();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

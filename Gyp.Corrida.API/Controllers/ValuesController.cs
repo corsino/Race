@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Gyp.Corrida.Domain.Corrida;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gyp.Corrida.API.Controllers
@@ -10,11 +11,17 @@ namespace Gyp.Corrida.API.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly IRaceService _raceService;
+        public ValuesController(IRaceService raceService)
+        {
+            _raceService = raceService;
+        }
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            int volta =_raceService.CalculaVolta();
+            return new string[] { volta.ToString(), "value2" };
         }
 
         // GET api/values/5
