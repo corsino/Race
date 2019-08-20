@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Gyp.Corrida.Domain\Gyp.Corrida.Domain.csproj" />
+    <ProjectReference Include="..\Gyp.Corrida.Application\Gyp.Corrida.Application.csproj" />
   </ItemGroup>
 
 </Project>

@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gyp.Corrida.Domain.Corrida
+namespace Gyp.Corrida.Application
 {
-    public interface IRaceService
+    public enum ErrorCode
     {
-        int CalculaVolta();
+        NotFound,
+        Invalid,
+        Business
     }
 }

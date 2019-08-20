@@ -10,11 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Flunt" Version="1.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Gyp.Corrida.Application\Gyp.Corrida.Application.csproj" />
     <ProjectReference Include="..\Gyp.Corrida.InfraStructure.Bootstrap\Gyp.Corrida.InfraStructure.Bootstrap.csproj" />
   </ItemGroup>
 

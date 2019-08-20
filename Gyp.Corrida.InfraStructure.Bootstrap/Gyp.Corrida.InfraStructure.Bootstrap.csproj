@@ -522,6 +522,10 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Gyp.Corrida.Application\Gyp.Corrida.Application.csproj">
+      <Project>{095B77EC-9C8B-423D-85FA-E47E26D05725}</Project>
+      <Name>Gyp.Corrida.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gyp.Corrida.Domain\Gyp.Corrida.Domain.csproj">
       <Project>{A4EC92FA-AD3E-4256-AE0D-EDF2C7E55C94}</Project>
       <Name>Gyp.Corrida.Domain</Name>

@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Flunt, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flunt.1.0.4\lib\netstandard2.0\Flunt.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,9 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Corrida\IRaceService.cs" />
-    <Compile Include="Corrida\RaceService.cs" />
+    <Compile Include="Corrida\IRaceFileService.cs" />
+    <Compile Include="Corrida\RaceFileService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gyp.Corrida.Application\Gyp.Corrida.Application.csproj">
+      <Project>{095B77EC-9C8B-423D-85FA-E47E26D05725}</Project>
+      <Name>Gyp.Corrida.Application</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
