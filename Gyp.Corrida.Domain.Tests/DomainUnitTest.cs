@@ -1,11 +1,18 @@
+using Gyp.Corrida.API.Controllers;
 using Gyp.Corrida.Application.UseCases.File;
+using Microsoft.AspNetCore.Http;
+using Moq;
 using System;
+using System.IO;
 using Xunit;
 
 namespace Gyp.Corrida.Domain.Tests
 {
-    public class UnitTest1
+    public class DomainUnitTest
     {
+
+        
+
         //[Fact]
         //public void Deve_Existir_4_voltas()
         //{

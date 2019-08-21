@@ -36,10 +36,10 @@ namespace Gyp.Corrida.API.Controllers
         {
             var request = new RaceFileRequest(file);
 
-            var resultado = _raceFileUseCase.UploadRaceFile(request);
+            var isValidFile = _raceFileUseCase.ValidateInputFile(request);
 
             var presenter = new RaceFilePresenter();
-            presenter.Populate(resultado);
+            presenter.Populate(isValidFile);
             return presenter.ViewModel;
 
         }

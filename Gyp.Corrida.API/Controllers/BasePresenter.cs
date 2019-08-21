@@ -15,13 +15,11 @@ namespace Gyp.Corrida.API.Controllers
             if (result == null || result.Error == ErrorCode.NotFound)
             {
                 ViewModel = new NotFoundObjectResult(ApiError.FromResult(result));
-               // return;
             }
 
             if (result.Invalid)
             {
                 ViewModel = new UnprocessableEntityObjectResult(ApiError.FromResult(result));
-               // return;
             }
 
             OnPopulate(result);
