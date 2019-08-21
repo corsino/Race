@@ -11,7 +11,7 @@ namespace Gyp.Corrida.Application.Tests
     {
 
         [Fact]
-        public void Should_Return_Invalid_File_Content()
+        public void Should_Return_Invalid_File_Empty_Content()
         {
 
             var fileMock = new Mock<IFormFile>();
@@ -62,7 +62,7 @@ namespace Gyp.Corrida.Application.Tests
         }
 
         [Fact]
-        public void Should_Return_Stream_Reader_Object()
+        public void Should_Return_Stream_Reader_File_Object()
         {
 
             var fileMock = new Mock<IFormFile>();
@@ -86,5 +86,32 @@ namespace Gyp.Corrida.Application.Tests
             Assert.IsType<StreamReader>(raceValidType);
 
         }
+
+
+        [Fact]
+        public void Should_Return_Valid_File_Format()
+        {
+
+            var fileMock = new Mock<IFormFile>();
+
+            var content = "Has content and extension";
+            var fileName = "mock-file-race.txt";
+            var ms = new MemoryStream();
+            var writer = new StreamWriter(ms);
+            writer.Write(content);
+            writer.Flush();
+            ms.Position = 0;
+            fileMock.Setup(_ => _.OpenReadStream()).Returns(ms);
+            fileMock.Setup(_ => _.FileName).Returns(fileName);
+            fileMock.Setup(_ => _.Length).Returns(ms.Length);
+
+            var file = fileMock.Object;
+
+            RaceFileUseCase raceService = new RaceFileUseCase();
+            RaceFileRequest raceFileRequest = new RaceFileRequest(file);
+            var raceValidateResult = raceService.ValidateInputFile(raceFileRequest);
+            Assert.True(raceValidateResult.Success);
+        }
+
     }
 }

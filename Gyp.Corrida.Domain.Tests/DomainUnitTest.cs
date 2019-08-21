@@ -1,5 +1,3 @@
-using Gyp.Corrida.API.Controllers;
-using Gyp.Corrida.Application.UseCases.File;
 using Microsoft.AspNetCore.Http;
 using Moq;
 using System;
