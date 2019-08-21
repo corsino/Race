@@ -92,10 +92,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ErrorCode.cs" />
-    <Compile Include="UseCases\File\IRaceFileUseCase.cs" />
-    <Compile Include="UseCases\File\RaceFileUseCase.cs" />
-    <Compile Include="UseCases\File\RaceFileResult.cs" />
-    <Compile Include="UseCases\File\RaceFileRequest.cs" />
+    <Compile Include="UseCases\Race\FileRace.cs" />
+    <Compile Include="UseCases\Race\IRaceUseCase.cs" />
+    <Compile Include="UseCases\Race\RaceUseCase.cs" />
+    <Compile Include="UseCases\Race\RaceResult.cs" />
+    <Compile Include="UseCases\Race\RaceRequest.cs" />
     <Compile Include="Result.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -103,6 +104,11 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Gyp.Corrida.Domain\Gyp.Corrida.Domain.csproj">
+      <Project>{A4EC92FA-AD3E-4256-AE0D-EDF2C7E55C94}</Project>
+      <Name>Gyp.Corrida.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -44,19 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Corrida\IRaceFileService.cs" />
-    <Compile Include="Corrida\RaceFileService.cs" />
+    <Compile Include="Race\Metrics.cs" />
+    <Compile Include="Race\Services\IRaceService.cs" />
+    <Compile Include="Race\Services\RaceService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Gyp.Corrida.Application\Gyp.Corrida.Application.csproj">
-      <Project>{095B77EC-9C8B-423D-85FA-E47E26D05725}</Project>
-      <Name>Gyp.Corrida.Application</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gyp.Corrida.Application.UseCases.File
+namespace Gyp.Corrida.Application.UseCases.Race
 {
-    public class RaceFileRequest
+    public class RaceRequest
     {
-        public RaceFileRequest(IFormFile file)
+        public RaceRequest(IFormFile file)
         {
             this.File = file;
         }

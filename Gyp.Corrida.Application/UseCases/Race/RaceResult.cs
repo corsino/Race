@@ -1,14 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gyp.Corrida.Application.UseCases.File
+namespace Gyp.Corrida.Application.UseCases.Race
 {
-    public class RaceFileResult:Result
+    public class RaceResult<T>:Result
     {
         public bool Success { get; set; }
+        public T Data { get; set; }
     }
 }

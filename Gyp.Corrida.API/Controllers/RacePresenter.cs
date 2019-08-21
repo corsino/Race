@@ -1,4 +1,5 @@
-﻿using Gyp.Corrida.Application.UseCases.File;
+﻿using Gyp.Corrida.Application.UseCases.Race;
+using Gyp.Corrida.Domain.Race;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Gyp.Corrida.API.Controllers
 {
-    public class RaceFilePresenter:BasePresenter<RaceFileResult>
+    public class RacePresenter:BasePresenter<RaceResult<List<Metrics>>>
     {
         public IActionResult ViewModel { get; protected set; }
-        protected override void OnPopulate(RaceFileResult result)
+        protected override void OnPopulate(RaceResult<List<Metrics>> result)
         {
             ViewModel = new CreatedResult("/", new { result.Success, messages=result.Notifications });
         }
