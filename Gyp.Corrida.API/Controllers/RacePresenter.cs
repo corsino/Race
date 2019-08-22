@@ -13,7 +13,7 @@ namespace Gyp.Corrida.API.Controllers
         public IActionResult ViewModel { get; protected set; }
         protected override void OnPopulate(RaceResult<List<Metrics>> result)
         {
-            ViewModel = new CreatedResult("/", new { result.Success, messages=result.Notifications });
+                ViewModel = new CreatedResult("/", new { success= result.Success,data=result.Data,messages=result.Notifications });
         }
     }
 }

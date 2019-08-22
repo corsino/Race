@@ -9,6 +9,6 @@ namespace Gyp.Corrida.Domain.Race.Services
 {
     public interface IRaceService
     {
-        List<Metrics> GetdRaceMetrics(StreamReader raceStreamReader);
+        List<Metrics> GetRaceMetrics(StreamReader raceStreamReader);
     }
 }

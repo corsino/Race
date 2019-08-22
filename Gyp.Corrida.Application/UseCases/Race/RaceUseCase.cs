@@ -1,17 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Flunt.Notifications;
-using System.IO;
+﻿using Gyp.Corrida.Domain.Race;
 using Gyp.Corrida.Domain.Race.Services;
-using Gyp.Corrida.Domain.Race;
+using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Gyp.Corrida.Application.UseCases.Race
 {
-    public class RaceUseCase: IRaceUseCase
+    public class RaceUseCase : IRaceUseCase
     {
         public readonly IRaceService _raceService;
         public RaceUseCase(IRaceService raceService)
@@ -25,7 +20,9 @@ namespace Gyp.Corrida.Application.UseCases.Race
                 Success = true
             };
 
-            if(FileRace.IsValid(request.File))
+            var raceMetrics = new List<Metrics>();
+
+            if (!FileRace.IsValid(request.File))
             {
                 raceResult.AddNotification("Arquivo", "Arquivo inválido");
                 raceResult.Error = ErrorCode.Invalid;
@@ -33,7 +30,18 @@ namespace Gyp.Corrida.Application.UseCases.Race
                 return raceResult;
             }
 
-            var raceMetrics = _raceService.GetdRaceMetrics(GetRaceContentFileStream(request.File));
+            try
+            {
+                raceMetrics = _raceService.GetRaceMetrics(GetRaceContentFileStream(request.File));
+            }
+            catch
+            {
+                raceResult.AddNotification("Arquivo", "Conteúdo do arquivo inválido ou mal formatado");
+                raceResult.Error = ErrorCode.Invalid;
+                raceResult.Success = false;
+                return raceResult;
+            }
+
             raceResult.Data = raceMetrics;
             return raceResult;
         }
