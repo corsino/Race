@@ -47,7 +47,6 @@
     <Compile Include="Race\Lap.cs" />
     <Compile Include="Race\Metrics.cs" />
     <Compile Include="Race\Services\IRaceService.cs" />
-    <Compile Include="Race\Services\Pilot.cs" />
     <Compile Include="Race\Services\RaceService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,29 +1,35 @@
 ﻿using Gyp.Corrida.Domain.Race.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace Gyp.Corrida.Domain.Race
 {
     public class Lap
     {
-        public string Hour { get; set; }
-        public Pilot Pilot { get; set; }
-        public string LapNumber { get; set; }
+        public DateTime Hour { get; set; }
+        public string PilotNumber { get; set; }
+        public string PilotName { get; set; }
+        public int LapNumber { get; set; }
         public string LapTime { get; set; }
-        public string LapAVG { get; set; }
+        public decimal LapAVG { get; set; }
 
         public static Lap BuildLapObject(string lineOfFile)
         {
-            char tab = '\u0009';
-            var pilotNumber = lineOfFile.Substring(18, 3);
-            var pilotName = lineOfFile.Substring(24, 25);
+            var lap = new Lap();
+            var lapPropertyNames = typeof(Lap).GetProperties().Select(p => p.Name).ToList();
 
-            return new Lap()
+            var splitedRaceData = new List<string>(lineOfFile.Split(new string[] { " ", "\t" }, StringSplitOptions.None));
+            splitedRaceData.RemoveAll(x => x == "" || x == "–");
+
+            for (int i = 0; i < lapPropertyNames.Count; i++)
             {
-                Hour = lineOfFile.Substring(0, 12),
-                Pilot = new Pilot(pilotNumber, pilotName),
-                LapNumber = lineOfFile.Replace(tab," ").Substring(55, 6),
-                LapTime = lineOfFile.Substring(60, 20),
-                LapAVG = lineOfFile.Substring(81, lineOfFile.Length-1)
-            };
+                PropertyInfo propertyInfo = lap.GetType().GetProperty(lapPropertyNames[i]);
+                propertyInfo.SetValue(lap, Convert.ChangeType(splitedRaceData[i], propertyInfo.PropertyType), null);
+            }
+
+            return lap;
         }
     }
 }
