@@ -10,7 +10,7 @@ namespace Gyp.Corrida.API.Controllers
 {
     public class RacePresenter:BasePresenter<RaceResult<List<Metrics>>>
     {
-        public IActionResult ViewModel { get; protected set; }
+        public new IActionResult ViewModel { get; protected set; }
         protected override void OnPopulate(RaceResult<List<Metrics>> result)
         {
                 ViewModel = new CreatedResult("/", new { success= result.Success,data=result.Data,messages=result.Notifications });
