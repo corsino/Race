@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Race\Lap.cs" />
     <Compile Include="Race\Metrics.cs" />
+    <Compile Include="Race\Pilot.cs" />
     <Compile Include="Race\Services\IRaceService.cs" />
     <Compile Include="Race\Services\RaceService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

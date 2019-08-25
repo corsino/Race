@@ -20,8 +20,6 @@ namespace Gyp.Corrida.Application.UseCases.Race
                 Success = true
             };
 
-            var raceMetrics = new List<Metrics>();
-
             if (!FileRace.IsValid(request.File))
             {
                 raceResult.AddNotification("Arquivo", "Arquivo inválido");
@@ -32,7 +30,7 @@ namespace Gyp.Corrida.Application.UseCases.Race
 
             try
             {
-                raceMetrics = _raceService.GetRaceMetrics(GetRaceContentFileStream(request.File));
+                raceResult.Data = _raceService.GetRaceMetrics(GetRaceContentFileStream(request.File));
             }
             catch
             {
@@ -42,7 +40,6 @@ namespace Gyp.Corrida.Application.UseCases.Race
                 return raceResult;
             }
 
-            raceResult.Data = raceMetrics;
             return raceResult;
         }
 

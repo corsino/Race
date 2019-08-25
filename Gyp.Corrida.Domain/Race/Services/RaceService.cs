@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Gyp.Corrida.Domain.Race.Services
 {
@@ -11,17 +13,45 @@ namespace Gyp.Corrida.Domain.Race.Services
         {
             var metrics = new List<Metrics>();
 
-            var line = raceStreamReader.ReadLine();
+            string line = raceStreamReader.ReadLine();
+            List<Lap> lapObject = new List<Lap>();
+            List<Lap> lapPilotList;
+            int pilotNumber;
             while ((line = raceStreamReader.ReadLine()) != null)
             {
-                var lapObject = Lap.BuildLapObject(line);
+                lapObject.Add(Lap.BuildLapObject(line));
+            }
 
-                //metrics.Add(new Metrics() { PilotName = raceStreamReader.ReadLine() });
-                //Posição Chegada
-                //Codigo Piloto
-                //Nome Piloto
-                //Qtd Voltas Completadas
-                //Tempo total de prova
+            foreach (var pilotNumberIterator in lapObject.GroupBy(u=>u.PilotNumber))
+            {
+                pilotNumber = pilotNumberIterator.Key;
+                lapPilotList = lapObject.Where(u => u.PilotNumber.Equals(pilotNumber)).ToList();
+
+                metrics.Add(new Metrics()
+                {
+                    QuantityCompletedLap = GetCompletedLaps(lapPilotList),
+                    PilotTotalTime = Pilot.GetPilotTotalTime(Lap.GetTotalValidLaps(lapPilotList)
+                    .Select(u => Lap.GetTimeSpanFromLapString(u.LapTime)).ToList()),
+                    PilotNumber = Pilot.GetPilotNumber(lapPilotList),
+                    PilotName = Pilot.GetPilotName(lapPilotList)
+                });
+            }
+            //TODO: Posição Chegada
+
+            return SetPosition(metrics);
+        }
+
+        public int GetCompletedLaps(List<Lap> lapPilotObject)
+        {
+            return lapPilotObject.Count;
+        }
+
+        public List<Metrics> SetPosition(List<Metrics> metrics)
+        {
+            metrics = metrics.OrderBy(u => u.PilotTotalTime).ToList();
+            for (int i = 0; i < metrics.Count; i++)
+            {
+                metrics[i].Position = i+1;
             }
 
             return metrics;

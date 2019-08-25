@@ -12,7 +12,6 @@ namespace Gyp.Corrida.Application.Tests
     public class RaceFileUseCaseUnitTest
     {
 
-
         [Fact]
         public void Should_Return_Invalid_Extension()
         {

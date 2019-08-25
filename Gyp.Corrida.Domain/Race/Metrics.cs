@@ -8,10 +8,10 @@ namespace Gyp.Corrida.Domain.Race
 {
     public class Metrics
     {
-        public string Position { get; set; }
-        public string PilotCode { get; set; }
+        public int Position { get; set; }
+        public string PilotNumber { get; set; }
         public string PilotName { get; set; }
-        public string QuantityCompletedLap { get; set; }
-        public string TotalTime { get; set; }
+        public int QuantityCompletedLap { get; set; }
+        public TimeSpan PilotTotalTime { get; set; }
     }
 }

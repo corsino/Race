@@ -9,7 +9,7 @@ namespace Gyp.Corrida.Domain.Race
     public class Lap
     {
         public DateTime Hour { get; set; }
-        public string PilotNumber { get; set; }
+        public int PilotNumber { get; set; }
         public string PilotName { get; set; }
         public int LapNumber { get; set; }
         public string LapTime { get; set; }
@@ -23,13 +23,24 @@ namespace Gyp.Corrida.Domain.Race
             var splitedRaceData = new List<string>(lineOfFile.Split(new string[] { " ", "\t" }, StringSplitOptions.None));
             splitedRaceData.RemoveAll(x => x == "" || x == "–");
 
-            for (int i = 0; i < lapPropertyNames.Count; i++)
+            for (int i = 0; i < splitedRaceData.Count; i++)
             {
                 PropertyInfo propertyInfo = lap.GetType().GetProperty(lapPropertyNames[i]);
                 propertyInfo.SetValue(lap, Convert.ChangeType(splitedRaceData[i], propertyInfo.PropertyType), null);
             }
 
             return lap;
+        }
+
+        public static TimeSpan GetTimeSpanFromLapString(string dateTime)
+        {
+            string pattern = "m:ss.fff";
+            return DateTime.ParseExact(dateTime, pattern, null).TimeOfDay;
+        }
+
+        public static IEnumerable<Lap> GetTotalValidLaps(List<Lap> laps)
+        {
+            return laps.Where(u => u.LapNumber <= 4);
         }
     }
 }
