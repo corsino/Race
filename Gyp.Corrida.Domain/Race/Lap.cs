@@ -17,6 +17,12 @@ namespace Gyp.Corrida.Domain.Race
 
         public static Lap BuildLapObject(string lineOfFile)
         {
+
+            if (string.IsNullOrEmpty(lineOfFile))
+            {
+                throw new ArgumentOutOfRangeException("LineOfFile", "Linha do arquivo vazia");
+            }
+
             var lap = new Lap();
             var lapPropertyNames = typeof(Lap).GetProperties().Select(p => p.Name).ToList();
 

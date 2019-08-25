@@ -33,10 +33,10 @@ namespace Gyp.Corrida.Domain.Race.Services
                     PilotTotalTime = Pilot.GetPilotTotalTime(Lap.GetTotalValidLaps(lapPilotList)
                     .Select(u => Lap.GetTimeSpanFromLapString(u.LapTime)).ToList()),
                     PilotNumber = Pilot.GetPilotNumber(lapPilotList),
-                    PilotName = Pilot.GetPilotName(lapPilotList)
+                    PilotName = Pilot.GetPilotName(lapPilotList),
+                    BestLap = Pilot.GetPilotBestLap(lapPilotList)
                 });
             }
-            //TODO: Posição Chegada
 
             return SetPosition(metrics);
         }

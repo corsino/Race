@@ -76,5 +76,8 @@ namespace Gyp.Corrida.Domain.Tests
             Assert.Equal(4, Lap.GetTotalValidLaps(totalValidLaps).ToList().Count);
         }
 
+
+      
+
     }
 }

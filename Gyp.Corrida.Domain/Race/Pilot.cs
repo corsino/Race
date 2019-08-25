@@ -27,5 +27,19 @@ namespace Gyp.Corrida.Domain.Race
 
             return pilotTotalTime;
         }
+
+        public static string GetPilotBestLap(List<Lap> lapPilotList)
+        {
+            Dictionary<int, TimeSpan> bestLap = new Dictionary<int, TimeSpan>();
+
+            foreach (var lap in lapPilotList.Where(u=>u.LapNumber<=4))
+            {
+                bestLap.Add(lap.LapNumber, Lap.GetTimeSpanFromLapString(lap.LapTime));
+            }
+
+            var filterBestLap = bestLap.OrderBy(u => u.Value).First();
+
+            return $"Melhor volta { filterBestLap.Key } - Tempo: { filterBestLap.Value}";
+        }
     }
 }

@@ -65,11 +65,46 @@ namespace Gyp.Corrida.Domain.Tests
             Assert.IsType<TimeSpan>(totalTime);
         }
 
-        //[Fact]
-        //public void Should_Fail_Invalid_DateTime()
-        //{
-        //    string mockLine = "invalid format";
-        //    Assert.Throws<FormatException>(() => Lap.GetTimeSpanFromLapString(mockLine));
-        //}
+        [Fact]
+        public void Should_Fail_Best_Pilot_Lap()
+        {
+            List<Lap> bestLap = new List<Lap>();
+
+            bestLap.Add(new Lap() { LapTime = "1:02.769", LapNumber= 1 });
+            bestLap.Add(new Lap() { LapTime = "1:02.770", LapNumber = 2 });
+            bestLap.Add(new Lap() { LapTime = "1:02.771", LapNumber = 3 });
+            bestLap.Add(new Lap() { LapTime = "1:02.772", LapNumber = 4 });
+            bestLap.Add(new Lap() { LapTime = "1:02.773", LapNumber = 5 });
+
+            Assert.DoesNotContain("Melhor volta 3 - Tempo: 00:01:02.7730000", Pilot.GetPilotBestLap(bestLap));
+        }
+
+        [Fact]
+        public void Should_Return_Best_Pilot_Lap()
+        {
+            List<Lap> bestLap = new List<Lap>();
+
+            bestLap.Add(new Lap() { LapTime = "1:02.769", LapNumber = 1 });
+            bestLap.Add(new Lap() { LapTime = "1:02.770", LapNumber = 2 });
+            bestLap.Add(new Lap() { LapTime = "1:02.771", LapNumber = 3 });
+            bestLap.Add(new Lap() { LapTime = "1:02.772", LapNumber = 4 });
+            bestLap.Add(new Lap() { LapTime = "1:02.773", LapNumber = 5 });
+
+            Assert.Equal("Melhor volta 1 - Tempo: 00:01:02.7690000", Pilot.GetPilotBestLap(bestLap));
+        }
+
+        [Fact]
+        public void Should_Not_Consider_Lap_Five_As_Best_Pilot_Lap()
+        {
+            List<Lap> bestLap = new List<Lap>();
+
+            bestLap.Add(new Lap() { LapTime = "1:02.769", LapNumber = 1 });
+            bestLap.Add(new Lap() { LapTime = "1:02.770", LapNumber = 2 });
+            bestLap.Add(new Lap() { LapTime = "1:02.771", LapNumber = 3 });
+            bestLap.Add(new Lap() { LapTime = "1:02.772", LapNumber = 4 });
+            bestLap.Add(new Lap() { LapTime = "1:02.768", LapNumber = 5 });
+
+            Assert.DoesNotContain("Melhor volta 5 - Tempo: 00:01:02.7680000", Pilot.GetPilotBestLap(bestLap));
+        }
     }
 }
