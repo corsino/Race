@@ -29,7 +29,7 @@ namespace Gyp.Corrida.Domain.Race.Services
 
                 metrics.Add(new Metrics()
                 {
-                    QuantityCompletedLap = GetCompletedLaps(lapPilotList),
+                    QuantityCompletedLap = Race.GetCompletedLaps(lapPilotList),
                     PilotTotalTime = Pilot.GetPilotTotalTime(Lap.GetTotalValidLaps(lapPilotList)
                     .Select(u => Lap.GetTimeSpanFromLapString(u.LapTime)).ToList()),
                     PilotNumber = Pilot.GetPilotNumber(lapPilotList),
@@ -38,23 +38,7 @@ namespace Gyp.Corrida.Domain.Race.Services
                 });
             }
 
-            return SetPosition(metrics);
-        }
-
-        public int GetCompletedLaps(List<Lap> lapPilotObject)
-        {
-            return lapPilotObject.Count;
-        }
-
-        public List<Metrics> SetPosition(List<Metrics> metrics)
-        {
-            metrics = metrics.OrderBy(u => u.PilotTotalTime).ToList();
-            for (int i = 0; i < metrics.Count; i++)
-            {
-                metrics[i].Position = i+1;
-            }
-
-            return metrics;
+            return Race.SetPosition(metrics);
         }
     }
 }

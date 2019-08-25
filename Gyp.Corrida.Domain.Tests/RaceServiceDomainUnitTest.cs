@@ -14,10 +14,8 @@ namespace Gyp.Corrida.Domain.Tests
         [Fact]
         public void Should_Return_Zero_Completed_Laps()
         {
-            RaceService raceService = new RaceService();
-
             List<Lap> lapList = new List<Lap>();
-            var laps = raceService.GetCompletedLaps(lapList);
+            var laps = Race.Race.GetCompletedLaps(lapList);
             
             Assert.Equal(0,laps);
         }
@@ -25,13 +23,11 @@ namespace Gyp.Corrida.Domain.Tests
         [Fact]
         public void Should_Return_Two_Completed_Laps()
         {
-            RaceService raceService = new RaceService();
-
             List<Lap> lapList = new List<Lap>();
             lapList.Add(new Lap() { LapNumber = 1 });
             lapList.Add(new Lap() { LapNumber = 2 });
 
-            var laps = raceService.GetCompletedLaps(lapList);
+            var laps = Race.Race.GetCompletedLaps(lapList);
 
             Assert.Equal(2, laps);
         }
