@@ -1,54 +1,56 @@
-# Corrida
+# Race
 
 ![Postman](https://user-images.githubusercontent.com/6096675/63708230-37a06f00-c80a-11e9-8511-ff546212c338.JPG)
 
-Esse projeto contém uma estrutura desenvolvida em .Net Core em clean architecture (https://miro.medium.com/max/700/1*B7LkQDyDqLN3rRSrNYkETA.jpeg) adaptad.
-Para não gerar uma complexidade desnecessária, algumas camadas não foram aplicadas, como por exemplo UseCases,
-e tem por objetivo atender os requisitos:
-- Importação de log
-- Output de informações: **Posição Chegada, Código Piloto, Nome Piloto, Qtde Voltas Completadas e Tempo Total de Prova.**
-- Bônus: **Melhor volta de cada piloto, melhor volta da corrida, velocidade média de cada piloto**
+This project has a .Net Core adapted Clean Architecture. See references(https://gist.github.com/ygrenzinger/14812a56b9221c9feca0b3621518635b)
+Some layers proposed by Clean Architecture like *Adapters* was not applied to avoid complexity in this current project.
+
+Requirements:
+
+- Log file import
+- Basic Output: **Pilot Position, Pilot Code, Pilot Name, Completed Laps and Pilot total time.**
+- Bonus: **Better lap by pilot, better race lap, average speed by pilot**
 - Clean code
-- Imutabilidade
-- Tratamento de Erros;
-- Separação clara de responsabilidades (Domínios, Serviços, Repositórios, etc);
+- Immutability
+- Handle errors;
+- Clear Responsibility segregation (Domains, Services, Repositories, etc);
 
 ## TechStack
 
-### Projetos:
+### Projects:
 
-No desenvolvimento da solução foram utilizados os seguintes targets de compilação:
-
-- Bibliotecas - .Net Standard 4.7.1
+The following compilation target was assigned to this project:
+- Libraries - .Net Standard 4.7.1
 - Entrypoint\Web API - .Net Core 2.2
 
-### Testes:
+### Unit tests:
 
-Para testes utilizei xUnits
+**xUnits** Used to unit tests in this application
 
-### Documentação de API 
+### API documentation
 
-Uso do pacote [SwashBuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) para gerar a documentação da API no formato OpenAPI / Swagger. Para explorar a API, acesse https://localhost:44323/swagger em modo de runtime.
+Package usage [SwashBuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) to generate API documentation in OpenAPI / Swagger format. To explore API documentation, browse https://localhost:44323/swagger in runtime mode.
 
-As configurações podem ser encontradas no projeto `Gyp.Corrida.InfraStructure.Bootstrap`, nos arquivos `/ApplicationBuilder/SwaggerApplicationBuilderExtensions.cs` e  `/ServiceCollection/SwaggerServiceCollectionExtensions.cs`.
+Configuration Project could be find in `Gyp.Corrida.InfraStructure.Bootstrap`, files `/ApplicationBuilder/SwaggerApplicationBuilderExtensions.cs` and `/ServiceCollection/SwaggerServiceCollectionExtensions.cs`.
 
-Maiores informações podem ser encontradas na documentação da biblioteca em 
+More libraries and document informations in:
 https://github.com/domaindrivendev/Swashbuckle.AspNetCore#include-descriptions-from-xml-comments
 
-###Uso
+###Usage
 
-O Projeto pode ser executado pelo próprio Visual Studio, ou então, instalado no IIS para execução.
 
-Uma API será disponibilizada na URI: api/race
-A entrada é um arquivo no formato texto, conforme exibido na imagem abaixo:
+Visual Studio could browse this project or by installing an application in IIS windows or HTTP server in Linux.
+
+An API route is available in URI: api/race
+
+A TXT file input is required, see image below:
 
 ![Postman-input](https://user-images.githubusercontent.com/6096675/63709665-bc40bc80-c80d-11e9-9338-7194a4ed181c.JPG)
 
+Expected JSON output structure:
 
-
-A saída esperada é um JSON na seguinte estrutura:
-
-```{
+```
+{
     "success": true,
     "data": {
         "principalMetrics": [
@@ -112,5 +114,6 @@ A saída esperada é um JSON na seguinte estrutura:
         }
     },
     "messages": []
-}```
+}
+```
 
