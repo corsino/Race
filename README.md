@@ -42,9 +42,75 @@ O Projeto pode ser executado pelo próprio Visual Studio, ou então, instalado n
 Uma API será disponibilizada na URI: api/race
 A entrada é um arquivo no formato texto, conforme exibido na imagem abaixo:
 
+![Postman-input](https://user-images.githubusercontent.com/6096675/63709665-bc40bc80-c80d-11e9-9338-7194a4ed181c.JPG)
 
 
 
 A saída esperada é um JSON na seguinte estrutura:
 
+```{
+    "success": true,
+    "data": {
+        "principalMetrics": [
+            {
+                "position": 1,
+                "pilotNumber": "038",
+                "pilotName": "F.MASSA",
+                "quantityCompletedLap": 4,
+                "pilotTotalTime": "00:04:11.5780000",
+                "bestLap": "Melhor volta do piloto: 3, Tempo: 00:01:02.7690000",
+                "averageSpeed": 44.24575
+            },
+            {
+                "position": 3,
+                "pilotNumber": "033",
+                "pilotName": "R.BARRICHELLO",
+                "quantityCompletedLap": 4,
+                "pilotTotalTime": "00:04:16.0800000",
+                "bestLap": "Melhor volta do piloto: 3, Tempo: 00:01:03.7160000",
+                "averageSpeed": 43.468
+            },
+            {
+                "position": 2,
+                "pilotNumber": "002",
+                "pilotName": "K.RAIKKONEN",
+                "quantityCompletedLap": 4,
+                "pilotTotalTime": "00:04:15.1530000",
+                "bestLap": "Melhor volta do piloto: 4, Tempo: 00:01:03.0760000",
+                "averageSpeed": 43.62725
+            },
+            {
+                "position": 4,
+                "pilotNumber": "023",
+                "pilotName": "M.WEBBER",
+                "quantityCompletedLap": 4,
+                "pilotTotalTime": "00:04:17.7220000",
+                "bestLap": "Melhor volta do piloto: 4, Tempo: 00:01:04.2160000",
+                "averageSpeed": 43.19125
+            },
+            {
+                "position": 5,
+                "pilotNumber": "015",
+                "pilotName": "F.ALONSO",
+                "quantityCompletedLap": 4,
+                "pilotTotalTime": "00:04:54.2210000",
+                "bestLap": "Melhor volta do piloto: 2, Tempo: 00:01:07.0110000",
+                "averageSpeed": 38.06625
+            },
+            {
+                "position": 6,
+                "pilotNumber": "011",
+                "pilotName": "S.VETTEL",
+                "quantityCompletedLap": 3,
+                "pilotTotalTime": "00:06:27.2760000",
+                "bestLap": "Melhor volta do piloto: 3, Tempo: 00:01:18.0970000",
+                "averageSpeed": 25.745666666666666666666666667
+            }
+        ],
+        "adicionalMetrics": {
+            "bestRaceLap": "Melhor volta da corrida: 3, Tempo: 00:01:02.7690000, Piloto: F.MASSA"
+        }
+    },
+    "messages": []
+}```
 
