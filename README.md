@@ -31,6 +31,8 @@ The following compilation target was assigned to this project:
 
 Package usage [SwashBuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) to generate API documentation in OpenAPI / Swagger format. To explore API documentation, browse https://localhost:44323/swagger in runtime mode.
 
+![swagger](https://user-images.githubusercontent.com/6096675/63715634-87873200-c81a-11e9-9614-c0df4c6b314e.JPG)
+
 Configuration Project could be find in `Gyp.Corrida.InfraStructure.Bootstrap`, files `/ApplicationBuilder/SwaggerApplicationBuilderExtensions.cs` and `/ServiceCollection/SwaggerServiceCollectionExtensions.cs`.
 
 More libraries and document informations in:
