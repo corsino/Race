@@ -108,5 +108,34 @@ namespace Gyp.Corrida.Domain.Tests
             BestLapDetail bestLapDetail = Lap.GetBestLap(bestLap);
             Assert.False(bestLapDetail.LapNumber == 5, "Best Lap could not be >5");
         }
+
+        [Fact]
+        public void Should_Fail_Pilot_Race_Average_Speed()
+        {
+            var lapAverageSpeed = new List<decimal>();
+            lapAverageSpeed.Add(44.275m);
+            lapAverageSpeed.Add(44.053m);
+            lapAverageSpeed.Add(44.334m);
+            lapAverageSpeed.Add(43.321m);
+            
+            var raceAverageSpeed = Pilot.GetPilotAverageSpeed(lapAverageSpeed);
+
+            Assert.False(44.24575m==raceAverageSpeed,"Invalid Race Average");
+        }
+
+        [Fact]
+        public void Should_Return_Pilot_Race_Average_Speed()
+        {
+            var lapAverageSpeed = new List<decimal>();
+            lapAverageSpeed.Add(44.275m);
+            lapAverageSpeed.Add(44.053m);
+            lapAverageSpeed.Add(44.334m);
+            lapAverageSpeed.Add(44.321m);
+
+            var raceAverageSpeed = Pilot.GetPilotAverageSpeed(lapAverageSpeed);
+
+            Assert.True(44.24575m==raceAverageSpeed, "Valid Race Average");
+        }
+
     }
 }

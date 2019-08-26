@@ -27,5 +27,10 @@ namespace Gyp.Corrida.Domain.Race
 
             return pilotTotalTime;
         }
+
+        public static decimal GetPilotAverageSpeed(List<decimal> pilotLapAverageSpeed)
+        {
+            return pilotLapAverageSpeed.Sum() / pilotLapAverageSpeed.Count;
+        }
     }
 }

@@ -19,6 +19,8 @@ namespace Gyp.Corrida.Domain.Race.Services
             int pilotNumber;
             BestLapDetail bestPilotLap;
             BestLapDetail bestRaceLap;
+            List<decimal> averageSpeed;
+
             while ((line = raceStreamReader.ReadLine()) != null)
             {
                 lapObject.Add(Lap.BuildLapObject(line));
@@ -30,6 +32,7 @@ namespace Gyp.Corrida.Domain.Race.Services
                 pilotNumber = pilotNumberIterator.Key;
                 lapPilotList = lapObject.Where(u => u.PilotNumber.Equals(pilotNumber)).ToList();
                 bestPilotLap = Lap.GetBestLap(lapPilotList);
+                averageSpeed = lapPilotList.Select(u => u.LapAVG).ToList();
 
                 metrics.PrincipalMetrics.Add(
                     new PrincipalMetrics()
@@ -39,7 +42,8 @@ namespace Gyp.Corrida.Domain.Race.Services
                     .Select(u => Lap.GetTimeSpanFromLapString(u.LapTime)).ToList()),
                         PilotNumber = Pilot.GetPilotNumber(lapPilotList),
                         PilotName = Pilot.GetPilotName(lapPilotList),
-                        BestLap = $"Melhor volta do piloto: {bestPilotLap.LapNumber}, Tempo: {bestPilotLap.LapTime}"
+                        BestLap = $"Melhor volta do piloto: {bestPilotLap.LapNumber}, Tempo: {bestPilotLap.LapTime}",
+                        AverageSpeed = Pilot.GetPilotAverageSpeed(averageSpeed)
                     });
             }
 

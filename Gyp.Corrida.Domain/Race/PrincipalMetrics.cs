@@ -15,5 +15,6 @@ namespace Gyp.Corrida.Domain.Race
         public int QuantityCompletedLap { get; set; }
         public TimeSpan PilotTotalTime { get; set; }
         public string BestLap { get; set; }
+        public decimal AverageSpeed { get; set; }
     }
 }
