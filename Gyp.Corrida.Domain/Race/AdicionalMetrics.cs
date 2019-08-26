@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Gyp.Corrida.Domain.Race
 {
-    public class Metrics
+    public class AdicionalMetrics
     {
-        public List<PrincipalMetrics> PrincipalMetrics { get; set; }
-        public AdicionalMetrics AdicionalMetrics { get; set; }
+        public string BestRaceLap { get; set; }
     }
 }

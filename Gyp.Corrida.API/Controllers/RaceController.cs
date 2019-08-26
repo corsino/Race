@@ -28,7 +28,7 @@ namespace Gyp.Corrida.API.Controllers
         {
             RaceRequest requestRaceResult = new RaceRequest(file);
 
-            RaceResult<List<Metrics>> raceResult = _raceUseCase.ProcessRaceResult(requestRaceResult);
+            RaceResult<Metrics> raceResult = _raceUseCase.ProcessRaceResult(requestRaceResult);
 
             var presenter = new RacePresenter();
             presenter.Populate(raceResult);

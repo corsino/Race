@@ -48,5 +48,19 @@ namespace Gyp.Corrida.Domain.Race
         {
             return laps.Where(u => u.LapNumber <= 4);
         }
+
+        public static BestLapDetail GetBestLap(List<Lap> lapPilotList)
+        {
+            List<BestLapDetail> bestLap = new List<BestLapDetail>();
+
+            foreach (var lap in lapPilotList.Where(u => u.LapNumber <= 4))
+            {
+                bestLap.Add(new BestLapDetail(lap.PilotName, Lap.GetTimeSpanFromLapString(lap.LapTime),lap.LapNumber));
+            }
+
+            var filterBestLap = bestLap.OrderBy(u => u.LapTime).First();
+
+            return filterBestLap;
+        }
     }
 }

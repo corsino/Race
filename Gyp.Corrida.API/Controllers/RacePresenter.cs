@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Gyp.Corrida.API.Controllers
 {
-    public class RacePresenter:BasePresenter<RaceResult<List<Metrics>>>
+    public class RacePresenter:BasePresenter<RaceResult<Metrics>>
     {
         public new IActionResult ViewModel { get; protected set; }
-        protected override void OnPopulate(RaceResult<List<Metrics>> result)
+        protected override void OnPopulate(RaceResult<Metrics> result)
         {
                 ViewModel = new CreatedResult("/", new { success= result.Success,data=result.Data,messages=result.Notifications });
         }

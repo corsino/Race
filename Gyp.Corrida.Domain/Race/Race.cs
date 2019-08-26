@@ -13,7 +13,7 @@ namespace Gyp.Corrida.Domain.Race
             return lapPilotObject.Count;
         }
 
-        public static List<Metrics> SetPosition(List<Metrics> metrics)
+        public static List<PrincipalMetrics> SetPosition(List<PrincipalMetrics> metrics)
         {
             metrics = metrics.OrderBy(u => u.PilotTotalTime).ToList();
             for (int i = 0; i < metrics.Count; i++)

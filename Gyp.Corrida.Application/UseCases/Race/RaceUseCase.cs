@@ -13,9 +13,9 @@ namespace Gyp.Corrida.Application.UseCases.Race
         {
             _raceService = raceService;
         }
-        public RaceResult<List<Metrics>> ProcessRaceResult(RaceRequest request)
+        public RaceResult<Metrics> ProcessRaceResult(RaceRequest request)
         {
-            var raceResult = new RaceResult<List<Metrics>>()
+            var raceResult = new RaceResult<Metrics>()
             {
                 Success = true
             };

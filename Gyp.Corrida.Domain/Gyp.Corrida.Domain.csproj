@@ -44,8 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Race\AdicionalMetrics.cs" />
+    <Compile Include="Race\BestLapDetail.cs" />
     <Compile Include="Race\Lap.cs" />
     <Compile Include="Race\Metrics.cs" />
+    <Compile Include="Race\PrincipalMetrics.cs" />
     <Compile Include="Race\Pilot.cs" />
     <Compile Include="Race\Race.cs" />
     <Compile Include="Race\Services\IRaceService.cs" />

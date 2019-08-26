@@ -11,7 +11,7 @@ namespace Gyp.Corrida.Application.UseCases.Race
 {
     public interface IRaceUseCase
     {
-        RaceResult<List<Metrics>> ProcessRaceResult(RaceRequest request);
+        RaceResult<Metrics> ProcessRaceResult(RaceRequest request);
         StreamReader GetRaceContentFileStream(IFormFile file);
     }
 }

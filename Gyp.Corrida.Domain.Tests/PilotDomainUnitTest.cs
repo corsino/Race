@@ -75,8 +75,8 @@ namespace Gyp.Corrida.Domain.Tests
             bestLap.Add(new Lap() { LapTime = "1:02.771", LapNumber = 3 });
             bestLap.Add(new Lap() { LapTime = "1:02.772", LapNumber = 4 });
             bestLap.Add(new Lap() { LapTime = "1:02.773", LapNumber = 5 });
-
-            Assert.DoesNotContain("Melhor volta 3 - Tempo: 00:01:02.7730000", Pilot.GetPilotBestLap(bestLap));
+            BestLapDetail bestLapDetail = Lap.GetBestLap(bestLap);
+            Assert.False(bestLapDetail.LapNumber == 2, "Not a best Lap");
         }
 
         [Fact]
@@ -90,7 +90,8 @@ namespace Gyp.Corrida.Domain.Tests
             bestLap.Add(new Lap() { LapTime = "1:02.772", LapNumber = 4 });
             bestLap.Add(new Lap() { LapTime = "1:02.773", LapNumber = 5 });
 
-            Assert.Equal("Melhor volta 1 - Tempo: 00:01:02.7690000", Pilot.GetPilotBestLap(bestLap));
+            BestLapDetail bestLapDetail = Lap.GetBestLap(bestLap);
+            Assert.True(bestLapDetail.LapNumber == 1, "Best Lap");
         }
 
         [Fact]
@@ -104,7 +105,8 @@ namespace Gyp.Corrida.Domain.Tests
             bestLap.Add(new Lap() { LapTime = "1:02.772", LapNumber = 4 });
             bestLap.Add(new Lap() { LapTime = "1:02.768", LapNumber = 5 });
 
-            Assert.DoesNotContain("Melhor volta 5 - Tempo: 00:01:02.7680000", Pilot.GetPilotBestLap(bestLap));
+            BestLapDetail bestLapDetail = Lap.GetBestLap(bestLap);
+            Assert.False(bestLapDetail.LapNumber == 5, "Best Lap could not be >5");
         }
     }
 }
