@@ -3,6 +3,9 @@
 ![Postman](https://user-images.githubusercontent.com/6096675/63708230-37a06f00-c80a-11e9-8511-ff546212c338.JPG)
 
 This project has a .Net Core adapted Clean Architecture. See references(https://gist.github.com/ygrenzinger/14812a56b9221c9feca0b3621518635b)
+
+![CleanArch](https://user-images.githubusercontent.com/6096675/63718441-f7002000-c820-11e9-82a8-fcc5edec1b2a.JPG)
+
 Some layers proposed by Clean Architecture like *Adapters* was not applied to avoid complexity in this current project.
 
 Requirements:
