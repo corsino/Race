@@ -50,7 +50,7 @@ An API route is available in URI: api/race
 
 A TXT file input is required, you could find it in the root directory of this project in github **FileImportExample.txt**, see image below:
 
-![Postman-input](https://user-images.githubusercontent.com/6096675/63709665-bc40bc80-c80d-11e9-9338-7194a4ed181c.JPG)
+![image](https://user-images.githubusercontent.com/6096675/63988763-25e1f480-cab4-11e9-81d6-8b676d5eb92e.png)
 
 Expected JSON output structure:
 
