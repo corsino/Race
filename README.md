@@ -36,7 +36,7 @@ Package usage [SwashBuckle.AspNetCore](https://github.com/domaindrivendev/Swashb
 
 ![swagger](https://user-images.githubusercontent.com/6096675/63715634-87873200-c81a-11e9-9614-c0df4c6b314e.JPG)
 
-Configuration Project could be find in `Gyp.Corrida.InfraStructure.Bootstrap`, files `/ApplicationBuilder/SwaggerApplicationBuilderExtensions.cs` and `/ServiceCollection/SwaggerServiceCollectionExtensions.cs`.
+Configuration Project could be find in `Gyp.Race.InfraStructure.Bootstrap`, files `/ApplicationBuilder/SwaggerApplicationBuilderExtensions.cs` and `/ServiceCollection/SwaggerServiceCollectionExtensions.cs`.
 
 More libraries and document informations in:
 https://github.com/domaindrivendev/Swashbuckle.AspNetCore#include-descriptions-from-xml-comments
@@ -48,7 +48,7 @@ Visual Studio could browse this project or by installing an application in IIS w
 
 An API route is available in URI: api/race
 
-A TXT file input is required, see image below:
+A TXT file input is required, you could find it in the root directory of this project in github **FileImportExample.txt**, see image below:
 
 ![Postman-input](https://user-images.githubusercontent.com/6096675/63709665-bc40bc80-c80d-11e9-9338-7194a4ed181c.JPG)
 
