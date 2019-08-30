@@ -9,13 +9,13 @@ namespace Gyp.Race.InfraStructure.Bootstrap.Extensions
 {
     public static class SwaggerApplicationBuilderExtensions
     {
-        public static void UseGypCorridaSwagger(this IApplicationBuilder app)
+        public static void UseGypRaceSwagger(this IApplicationBuilder app)
         {
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Gyp Corrida API");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Gyp Race API");
             });
 
         }

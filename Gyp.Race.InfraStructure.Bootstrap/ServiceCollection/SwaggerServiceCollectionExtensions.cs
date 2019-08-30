@@ -14,7 +14,7 @@ namespace Gyp.Race.InfraStructure.Bootstrap.ServiceCollection
 {
     public static class SwaggerServiceCollectionExtensions
     {
-        public static void AddGypCorridaSwagger(this IServiceCollection services)
+        public static void AddGypRaceSwagger(this IServiceCollection services)
         {
 
             services.AddSwaggerGen(config =>
@@ -22,7 +22,7 @@ namespace Gyp.Race.InfraStructure.Bootstrap.ServiceCollection
                 config.SwaggerDoc("v1",
                     new Info
                     {
-                        Title = "Gyp Corrida API",
+                        Title = "Gyp Race API",
                         Version = "v1"
                     }
                  );

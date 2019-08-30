@@ -16,7 +16,7 @@ namespace Gyp.Race.InfraStructure.Bootstrap.ServiceCollection
 {
     public static class DIServiceCollectionExtensions
     {
-        public static void AddGypCorridaDI(this IServiceCollection services)
+        public static void AddGypRaceDI(this IServiceCollection services)
         {
             services.AddTransient<IRaceService, RaceService>();
             services.AddTransient<IRaceUseCase, RaceUseCase>();

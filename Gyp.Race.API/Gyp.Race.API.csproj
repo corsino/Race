@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\GYP\Corrida\Gyp.Race.API\Gyp.Race.API.xml</DocumentationFile>
+    <DocumentationFile>C:\GYP\Race\Gyp.Race.API\Gyp.Race.API.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

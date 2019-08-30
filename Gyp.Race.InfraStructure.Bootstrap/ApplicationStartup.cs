@@ -24,13 +24,13 @@ namespace Gyp.Race.InfraStructure.Bootstrap
                 options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
             });
 
-            services.AddGypCorridaSwagger();
-            services.AddGypCorridaDI();
+            services.AddGypRaceSwagger();
+            services.AddGypRaceDI();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-           app.UseGypCorridaSwagger();
+           app.UseGypRaceSwagger();
             app.UseMvc();
         }
     }
